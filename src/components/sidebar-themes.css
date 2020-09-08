@@ -1,0 +1,42 @@
+.sidebar-wrapper {
+  background-color: #1d1d1d; 
+}
+.sidebar-wrapper .sidebar-item {
+  border-top: 1px solid #2b2b2b; 
+}
+.sidebar-wrapper  a:not(.dropdown-item),
+.sidebar-wrapper .sidebar-header,
+.sidebar-wrapper .sidebar-search input,
+.sidebar-wrapper .sidebar-search i,
+#title i,
+.sidebar-wrapper  #title:not(.dropdown-item),
+.sidebar-dropdown span {
+ color: #adadad; 
+}
+.sidebar-wrapper a:not(.dropdown-item):hover,
+.sidebar-wrapper .sidebar-menu li.active > a,
+.sidebar-dropdown span:hover{
+ color: #d8d8d8; 
+}
+.sidebar-wrapper .sidebar-menu a:hover i,
+.sidebar-wrapper .sidebar-menu a:hover:before,
+.sidebar-wrapper .sidebar-menu li.active a i,
+.sidebar-menu #title:hover i{
+  color: #167bff; 
+}
+.sidebar-wrapper .sidebar-menu ul li a i, #title i {
+  background-color: #2b2b2b;
+}
+.sidebar-wrapper .sidebar-menu .header-menu span {
+  color: #868686; 
+}
+.sidebar-wrapper .sidebar-item {
+ border-color: #454545; 
+}
+
+.sidebar-dropdown-item {
+  background-color: rgba(81, 81, 81, 0.5); 
+}
+.title{
+  background-color: inherit;
+}

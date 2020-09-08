@@ -1,0 +1,162 @@
+.contactos_main{
+    position: relative;
+    width: 81%;
+    margin-left: 16%;
+    float: right;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    z-index: 99;    
+}
+.contactos-data{
+    float: right;
+    margin-bottom: 1em;
+    width: 100%;
+    padding-left: 5%;
+    margin-top: 1%;
+}
+.contactos-data-bg{
+    background: aliceblue;
+    width: 95%;
+    box-shadow: 0px 0px 15px;
+}
+.contactos_header{
+    position: relative;
+    display: flex;
+    padding-left: 7%;
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
+    /* background: linear-gradient(20deg, #023261 , #3364FF ); */
+    background-image: url(./bgHeader.jpg);  
+}
+.contactos_header h2{
+    width: 30%;
+    float: left;
+    color: aliceblue;
+    text-shadow: 0.1em 0.1em 0.2em;
+}
+.contactos_header_search{
+    width: 35%;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: 2em;
+}
+.contactos_header_search form{
+    width: 14rem;
+}
+.search-button{
+    border-radius: 50%;
+}
+.search-input-contacto{
+    width: 30%;
+    float: left;
+}
+.search-input-empresa{
+    width: 30%;
+    float: right;
+}
+
+
+#load-msg{
+    margin-top: 3em;
+    text-align: center;
+}
+#contactos-pagination{
+    margin: 0.5em;
+    float: right;
+}
+.contactos-data-list{
+    display: flex;
+    width: 100%;
+    font-size: 0.8rem;
+}
+.contactos-data-header{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+.contactos-registration{
+    width: 50%;
+    background: aliceblue;
+    border-radius: 5%;
+    margin-left: 20%;
+    opacity: 88%;
+    margin-top: 2%;
+    box-shadow: 0px 0px 15px;
+}
+.contactos-registration-form{
+    padding: 8% 10% 10% 10%;
+}
+.contactos-registration-form h4{
+    text-align: center;
+    margin-bottom: 1em;
+} 
+.contactos-registration-form label, .contactos-registration-form label input,.contactos-registration-form label select{
+    width: 100%;
+}
+.contactos-registration-form-field-input{
+    width: 100%;
+    font-size: 0.9rem;
+}
+.contactos-registration-form-field{
+    margin: 1em auto;
+}
+#iempresa{
+    width: 50%;
+    margin-left: 16%;
+    font-size: smaller;
+    margin-bottom: 1%;
+}
+#list{
+    overflow: scroll;
+    height: 20%;
+}
+
+#cliente, #nombre, #email, #telefono{    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid black;
+    padding: 0.25rem 0% 0.25rem 0.25rem;
+}
+#clienteHeader, #nombreHeader, #emailHeader, #telefonoHeader{   
+    border: 1px solid black;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+#cliente{
+    width: 40%;
+}
+#clienteHeader{
+    width: 40%;
+}
+#nombre{
+    width: 25%;
+}
+#nombreHeader{
+    width: 25%;
+}
+#email{
+    width: 40%;
+}
+#emailHeader{
+    width: 40%;
+}
+#telefono{
+    width: 25%;  
+}
+#telefonoHeader{
+    width: 25%;
+}
+.bgLine{
+    background-color: #62889f;
+    color: gold;
+}
+
+.contactos-dd-cliente{
+    background-color: white;
+    overflow: overlay;
+    max-height: 25vh;
+    border: 1px solid;
+    border-color: darkgray;
+    list-style: none;
+}
