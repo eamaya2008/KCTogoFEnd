@@ -1,5 +1,6 @@
-.sidebar-wrapper {
-  background-color: #1d1d1d; 
+.sidebar-wrapper, .main-header {
+  background-color: #1e3b5b;
+  opacity: 90%;
 }
 .sidebar-wrapper .sidebar-item {
   border-top: 1px solid #2b2b2b; 
@@ -11,7 +12,7 @@
 #title i,
 .sidebar-wrapper  #title:not(.dropdown-item),
 .sidebar-dropdown span {
- color: #adadad; 
+ color: bisque; 
 }
 .sidebar-wrapper a:not(.dropdown-item):hover,
 .sidebar-wrapper .sidebar-menu li.active > a,
@@ -24,13 +25,10 @@
 .sidebar-menu #title:hover i{
   color: #167bff; 
 }
-.sidebar-wrapper .sidebar-menu ul li a i, #title i {
-  background-color: #2b2b2b;
+.sidebar-wrapper .sidebar-menu .header-menu span, .user-name {
+  color: aliceblue; 
 }
-.sidebar-wrapper .sidebar-menu .header-menu span {
-  color: #868686; 
-}
-.sidebar-wrapper .sidebar-item {
+.sidebar-wrapper .sidebar-item{
  border-color: #454545; 
 }
 

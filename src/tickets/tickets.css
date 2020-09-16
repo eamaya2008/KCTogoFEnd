@@ -1,16 +1,25 @@
+.contactos_main{
+    position: relative;
+    width: 81%;
+    margin-left: 16%;
+    float: right;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    z-index: 99;    
+}
 .contactos-data{
     float: right;
     margin-bottom: 1em;
     width: 100%;
     padding-left: 5%;
     margin-top: 1%;
+    opacity: 95%;
 }
 .contactos-data-bg{
     background: aliceblue;
     width: 95%;
     box-shadow: 0px 0px 15px;
 }
-
 .contactos_header_search{
     width: 35%;
     float: left;
@@ -52,10 +61,10 @@
     width: 100%;
 }
 .contactos-registration{
-    position: fixed;
     width: 50%;
     background: aliceblue;
-    border-radius: 5%;    
+    border-radius: 5%;
+    margin-left: 20%;
     opacity: 88%;
     margin-top: 2%;
     box-shadow: 0px 0px 15px;
@@ -124,10 +133,6 @@
 #telefonoHeader{
     width: 25%;
 }
-.bgLine{
-    background-color: #1e3b5b;
-    color: #f5b995;
-}
 
 .contactos-dd-cliente{
     background-color: white;
@@ -137,4 +142,3 @@
     border-color: darkgray;
     list-style: none;
 }
-
