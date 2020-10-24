@@ -24,7 +24,8 @@ const Tickets = () => {
         tik_tipo: '',
         tik_modulo: '',
         tik_tema: '',
-        tik_notes: ''
+        tik_notes: '',
+        tik_ven_cod: ''
     });
 
     useEffect(() => {
@@ -38,6 +39,15 @@ const Tickets = () => {
     const handleTicketSelect = (ticket) =>{
         setTicketSelected(ticket);
     }
+
+    const handleUpdateTicket = (venCod) =>{
+        setTicketSelected({
+            ...ticketSelected,
+            tik_ven_cod: venCod
+        })
+    }
+
+    console.log(ticketSelected.tik_ven_cod)
 
     return (
 
@@ -87,7 +97,7 @@ const Tickets = () => {
 
             </div >
 
-            <EditArea ticketSelected={ticketSelected} />
+            <EditArea ticketSelected={ticketSelected} handleUpdateTicket={handleUpdateTicket}/>
 
         </div >
     )

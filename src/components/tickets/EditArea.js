@@ -4,21 +4,21 @@ import { green } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 import OptionMenuParam from './OptionParam.js';
 import OptionMenuContact from './OptionContacts.js';
+import OptionMenuVendedor from './OptionVendedor.js';
 import { conexApi } from '../config.js'
 
 
 const EditArea = (props) => {
 
-    const server = conexApi + "contactos/empresa/cliCod/"
-
     const [info, setInfo] = useState(false);
     const [contacts, setContacts] = useState([]);
+    const [cliCod, setCliCod] = useState('');
+    const { ticketSelected, handleUpdateTicket } = props;    
 
-    console.log(contacts)
-
-
-    const ticket = props.ticketSelected
-    const cliCod = ticket.tik_clientecod;
+    useEffect(() => {
+        // setTicket(ticketSelected)
+        setCliCod(ticketSelected.tik_clientecod)
+    }, [ticketSelected])
 
     const ColorButton = withStyles((theme) => ({
         root: {
@@ -39,38 +39,28 @@ const EditArea = (props) => {
         }
     }
 
-    // const [ticketSelected, setTicketSelected] = useState({
-    //     tik_id: '',
-    //     tik_fechacreacion: '',
-    //     tik_fechamodif: '',
-    //     tik_cliente: '',
-    //     tik_clientecod: '',
-    //     tik_abonado: '',
-    //     tik_contacto: '',
-    //     tik_tel: '',
-    //     tik_email: '',
-    //     tik_estado: '',
-    //     tik_usu: '',
-    //     tik_tipo: '',
-    //     tik_modulo: '',
-    //     tik_tema: '',
-    //     tik_notes: ''
-    // });
 
-    useEffect(()=>{
+    useEffect(() => {
         if (cliCod.length > 0) {
-            fetch(server + cliCod)
+            fetch(conexApi + "contactos/empresa/cliCod/" + cliCod)
                 .then(res => res.json())
                 .then(function (data) {
-                    setContacts(data)                  
+                    setContacts(data)
                 })
         }
-    }, [server, cliCod])    
-    
+    }, [cliCod])
 
     // const handleContacto = () => {
 
     // }
+
+    const handleVendedorInput = (venCod) => {
+        handleUpdateTicket(venCod)
+    }
+
+    const handleTema = () => {
+
+    }
 
 
     return (
@@ -78,20 +68,20 @@ const EditArea = (props) => {
         <div className="tickets-modi-bg">
             {info &&
                 <div className="tickets-modi-fcreacion">
-                    <input contentEditable="false" value={ticket.tik_fechacreacion} disabled></input>
-                    <input contentEditable="false" value={ticket.tik_fechamodif} disabled></input>
+                    <input contentEditable="false" value={ticketSelected.tik_fechacreacion} disabled></input>
+                    <input contentEditable="false" value={ticketSelected.tik_fechamodif} disabled></input>
                 </div>
             }
             <div className="tickets-modi-conteiner">
                 <div className="tickets-modi-stateArea">
                     <div className="tickets-modi-emp">
-                        <input contentEditable="false" value={ticket.tik_id} disabled />
-                        <input 
-                        contentEditable="false" 
-                        value={ticket.tik_cliente || "Empresa"} 
-                        disabled 
+                        <input contentEditable="false" value={ticketSelected.tik_id} disabled />
+                        <input
+                            contentEditable="false"
+                            value={ticketSelected.tik_cliente || "Empresa"}
+                            disabled
                         />
-                        <input contentEditable="false" value={ticket.tik_abonado} disabled />
+                        <input contentEditable="false" value={ticketSelected.tik_abonado} disabled />
                         <i
                             className="fas fa-info-circle"
                             onMouseEnter={() => setInfo(true)}
@@ -105,13 +95,13 @@ const EditArea = (props) => {
                         <p>Contacto</p>
                         <hr></hr>
                     </div>
-                        
-                        <OptionMenuContact 
-                        options={contacts} 
-                        contactName={ticket.tik_contacto || "Contacto"} 
-                        contactPhone={ticket.tik_tel || "Telefono"} 
-                        contactEmail={ticket.tik_email || "Email"}  
-                        />
+
+                    <OptionMenuContact
+                        options={contacts}
+                        contactName={ticketSelected.tik_contacto || "Contacto"}
+                        contactPhone={ticketSelected.tik_tel || "Telefono"}
+                        contactEmail={ticketSelected.tik_email || "Email"}
+                    />
 
                     <div className="tickets-modi-subTitle">
                         <hr></hr>
@@ -126,23 +116,17 @@ const EditArea = (props) => {
                             "Cerrado",
                             "Pendiente",
                             "Derivado Bs.As."
-                        ]} inheritedTitle={estado(ticket.tik_estado)} />
+                        ]} inheritedTitle={estado(ticketSelected.tik_estado)} />
 
-                        <OptionMenuParam options={[
-                            "Soporte",
-                            "Esteban",
-                            "Pablo",
-                            "Federico",
-                            "Sebastian",
-                            "Patricia",
-                            "Rosana",
-                            "Ivonne"
-                        ]} inheritedTitle={ticket.tik_usu || "Usuario"} />
+                        <OptionMenuVendedor
+                            inheritedTitle={ticketSelected.tik_usu || "Usuario"}
+                            handleVendedorInput={handleVendedorInput}
+                        />
 
                         <OptionMenuParam options={[
                             "Tecnica",
                             "Funcional"
-                        ]} inheritedTitle={ticket.tik_tipo || "Consulta"} />
+                        ]} inheritedTitle={ticketSelected.tik_tipo || "Consulta"} />
 
                         <OptionMenuParam options={[
                             "Migrar Server",
@@ -154,7 +138,7 @@ const EditArea = (props) => {
                             "Desarrollo/MAM",
                             "Produccion",
                             "SJ/RRHH"
-                        ]} inheritedTitle={ticket.tik_modulo || "Modulo"} />
+                        ]} inheritedTitle={ticketSelected.tik_modulo || "Modulo"} />
                     </div>
 
 
@@ -165,7 +149,7 @@ const EditArea = (props) => {
                     <hr></hr>
                 </div>
                 <div className="tickets-modi-data">
-                    <textarea value={ticket.tik_tema}></textarea>
+                    <textarea value={ticketSelected.tik_tema} onChange={handleTema}></textarea>
                 </div>
                 <div className="tickets-modi-subTitle">
                     <hr></hr>
