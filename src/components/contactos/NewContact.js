@@ -4,23 +4,22 @@ import './contact.css';
 import {TextField, Button} from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab';
 import SaveIcon from '@material-ui/icons/Save';
+import {conexApi} from '../config.js';
 
-const AddContact = (props) => {
+const AddContact = () => {
     
     const [clientes, setClientes] = useState([]);
-    const [cliente, setCliente] = useState({
+    const [contacto, setContacto] = useState({
         cotcli_codigo: '',
         cot_nombre: '',
         cot_email: '',
         cot_telefono: ''
     });    
     
-    const server = 'http://localhost:8000/api/'; 
-
 //Carga los cliente a mostrar en el componente Autocomplete
     useEffect(() => {
         setTimeout(() => {            
-                fetch(server + 'clientes')
+                fetch(conexApi + 'clientes')
                     .then(res => res.json())
                     .then(data => setClientes(data))            
         }, 1000);     
@@ -29,16 +28,16 @@ const AddContact = (props) => {
 // Captura el codigo de cliente del componente Autocomplete
     const handleInputCliente = (e, value) =>{        
         if (value !== null){
-            setCliente({
-                ...cliente,
+            setContacto({
+                ...contacto,
                 cotcli_codigo: value.cli_cod                
             });            
         };   
     };
 // Captura los datos de los input
     const handleInputs = (e) =>{  
-        setCliente({
-            ...cliente,
+        setContacto({
+            ...contacto,
             [e.target.name]: e.target.value
         });
     }; 
@@ -48,7 +47,7 @@ const AddContact = (props) => {
 
 // Blanquea los campos
 const cleanInputs = () =>{
-    setCliente({
+    setContacto({
         cotcli_codigo: '',
         cot_nombre: '',
         cot_email: '',
@@ -61,9 +60,9 @@ const cleanInputs = () =>{
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(cliente)
+            body: JSON.stringify(contacto)
         };
-        fetch(server + 'contactos/altaContacto', requestOptions)
+        fetch(conexApi + 'contactos/altaContacto', requestOptions)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(function(response){
@@ -77,14 +76,13 @@ const cleanInputs = () =>{
     
     return (        
                 <div 
-            className={props.sdBarState ? "contactos-registration ctr-large" : "contactos-registration ctr-shrink"}                
+            className="contactos-registration"
                 >
                     <div className="contactos-registration-form">
                         <h4>Nuevo Contacto</h4>
                         <form>
                             <div>
                                 <Autocomplete
-                                    id="combo-box-demo"
                                     options={clientes}
                                     getOptionLabel={option => option.cli_razsoc}                                   
                                     onChange={handleInputCliente}                                
@@ -96,10 +94,9 @@ const cleanInputs = () =>{
                                 <TextField
                                     autoComplete="off"
                                     className="contactos-registration-form-field-input"
-                                    id="standar-basic"
                                     label="Nombre"
                                     name="cot_nombre"
-                                    value={cliente.cot_nombre}                                    
+                                    value={contacto.cot_nombre}                                    
                                     onChange={handleInputs}                                                                   
                                 />
                             </div>
@@ -107,10 +104,9 @@ const cleanInputs = () =>{
                                 <TextField
                                     autoComplete="off"
                                     className="contactos-registration-form-field-input"
-                                    id="standar-basic"
                                     label="Email"
                                     name="cot_email"
-                                    value={cliente.cot_email}
+                                    value={contacto.cot_email}
                                     onChange={handleInputs}
                                 />
                             </div>                            
@@ -118,10 +114,9 @@ const cleanInputs = () =>{
                                 <TextField
                                     autoComplete="off"
                                     className="contactos-registration-form-field-input"
-                                    id="standar-basic"
                                     label="Telefono"
                                     name="cot_telefono"
-                                    value={cliente.cot_telefono}
+                                    value={contacto.cot_telefono}
                                     onChange={handleInputs}
                                 />
                             </div>

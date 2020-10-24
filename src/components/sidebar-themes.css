@@ -1,4 +1,4 @@
-.sidebar-wrapper, .main-header {
+.sidebar-wrapper, .main-header, .component-title{
   background-color: #1e3b5b;
   opacity: 90%;
 }
@@ -22,19 +22,28 @@
 .sidebar-wrapper .sidebar-menu a:hover i,
 .sidebar-wrapper .sidebar-menu a:hover:before,
 .sidebar-wrapper .sidebar-menu li.active a i,
-.sidebar-menu #title:hover i{
+.sidebar-menu #title:hover i,
+#title:hover i{
   color: #167bff; 
 }
-.sidebar-wrapper .sidebar-menu .header-menu span, .user-name {
+.sidebar-wrapper .sidebar-menu .header-menu span, .user-name, .sidebar-dropdown-item-conteiner, .component-title h2 {
   color: aliceblue; 
 }
 .sidebar-wrapper .sidebar-item{
  border-color: #454545; 
 }
 
-.sidebar-dropdown-item {
-  background-color: rgba(81, 81, 81, 0.5); 
+.sidebar-dropdown-item-conteiner, .contactos-data-bg, .tickets-data-bg, .tickets-modi-bg, .tickets-data-grid, .tickets-filter-conteiner {
+  background-color:aliceblue; 
 }
 .title{
   background-color: inherit;
+}
+.options-menu option:hover, #tickets-modi-add-contact:hover {
+background-color:  #167bff;
+color: white;
+}
+#tickets-modi-add-contact{
+    background-color: tomato;
+    color: white;
 }
