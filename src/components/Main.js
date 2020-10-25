@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Route, HashRouter } from "react-router-dom";
 // Components
 import Contact from './contactos/Contact';
-import NewContact from './contactos/NewContact';
+import NewContact from './contactos/NewContactModal';
 import Tickets from './tickets/Tickets';
 import Header from './Header';
 // Styles

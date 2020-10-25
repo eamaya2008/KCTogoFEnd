@@ -4,6 +4,7 @@ import { Pagination } from '@material-ui/lab';
 import AddIcon from '@material-ui/icons/AddCircle';
 import EditIcon from '@material-ui/icons/Edit';
 import EditContactModal from './EditContactModal.js'
+import NewContactModal from './NewContactModal.js'
 import { conexApi } from '../config.js';
 
 const Contacto = () => {
@@ -21,7 +22,8 @@ const Contacto = () => {
     const [url, setUrl] = useState(defaultUrl)
     const [loading, setLoading] = useState(true)
     const [pageNumber, setPageNumber] = useState(1)
-    const [openModal, setOpenModal] = useState(false)
+    const [openEditModal, setOpenEditModal] = useState(false)
+    const [openNewModal, setOpenNewModal] = useState(false)
 
     const icliente = useRef()
     const icontacto = useRef()
@@ -72,23 +74,28 @@ const Contacto = () => {
     const handleChangePage = (e, value) => {
         setPageNumber(value)
     }
+    const handleNewContact = () =>{
+        setOpenNewModal(true)
+    }
 
     //Manejador de edicion de contacto(pasa los datos al modal y lo abre)
     const handleEditContact = (contactToEdit) => {
         setEditableContact(contactToEdit)
-        setOpenModal(true)       
+        setOpenEditModal(true)
     }
 
-    const hadleFetchResponseEditContact = (response) =>{
+    const hadleFetchResponseEditContact = (response) => {
         if (response === 201) {
             alert("El contacto fue modificado")
             setPageNumber(0)
         }
     }
- 
+
     return (
         <div className="contactos-data">
             <div className="contactos_header_search">
+
+                {/* BUSCADOR CONTACTO */}
                 <div className="search-input-contacto">
                     <form
                         onSubmit={handleSearchContacto}
@@ -101,6 +108,8 @@ const Contacto = () => {
                         <button className="search-button"><i className="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
+
+                {/* BUSCADOR EMPRESA */}
                 <div className="search-input-empresa">
                     <form
                         onSubmit={handleSearchEmpresa}
@@ -114,6 +123,8 @@ const Contacto = () => {
                     </form>
                 </div>
             </div>
+
+            {/* PAGINACION */}
             <div className="contactos-data-bg">
                 <Pagination
                     count={contact.last_page}
@@ -124,36 +135,48 @@ const Contacto = () => {
                     page={pageNumber}
                     onChange={handleChangePage}
                 />
-                <table>
-                    <tr className="contactos-data-header">
-                        <th id="nombreHeader">Nombre</th>
-                        <th id="emailHeader">Email</th>
-                        <th id="telefonoHeader">Telefono</th>
-                        <th id="clienteHeader">Empresa</th>
-                        <th id="modificarHeader"><AddIcon color="primary" id="contactos-add-button" /></th>
-                    </tr>
 
+                {/* TICKETS */}
+                <table>
+                    <thead>
+                        <tr className="contactos-data-header">
+                            <th id="nombreHeader">Nombre</th>
+                            <th id="emailHeader">Email</th>
+                            <th id="telefonoHeader">Telefono</th>
+                            <th id="clienteHeader">Empresa</th>
+                            <th id="modificarHeader">
+                                <AddIcon 
+                                color="primary" 
+                                id="contactos-add-button" 
+                                    onClick={handleNewContact}
+                                />
+                                </th>
+                        </tr>
+                    </thead>
                     {/*Render del listado de contactos */}
 
-                    {contactData.map((contacto, index) => {
-                        return (
-                            <tr
-                                key={index}
-                                className={index % 2 === 0 ? "contactos-data-list bgLine" : "contactos-data-list"}
-                            >
+                    <tbody>
+                        {contactData.map((contacto, index) => {
+                            return (
 
-                                <td id="nombre">{contacto.cot_nombre}</td>
-                                <td id="email">{contacto.cot_email}</td>
-                                <td id="telefono">{contacto.cot_telefono}</td>
-                                <td id="cliente">{contacto.cli_razsoc}</td>
-                                <td id="modificar"
-                                    onClick={() => handleEditContact(contacto)}
+                                <tr
+                                    key={index}
+                                    className={index % 2 === 0 ? "contactos-data-list bgLine" : "contactos-data-list"}
                                 >
-                                    <EditIcon id="contactos-edit-button" />
-                                </td>
-                            </tr>
-                        )
-                    }, this)}
+
+                                    <td id="nombre">{contacto.cot_nombre}</td>
+                                    <td id="email">{contacto.cot_email}</td>
+                                    <td id="telefono">{contacto.cot_telefono}</td>
+                                    <td id="cliente">{contacto.cli_razsoc}</td>
+                                    <td id="modificar"
+                                        onClick={() => handleEditContact(contacto)}
+                                    >
+                                        <EditIcon id="contactos-edit-button" />
+                                    </td>
+                                </tr>
+                            )
+                        }, this)}
+                    </tbody>
                 </table>
             </div>
 
@@ -163,13 +186,21 @@ const Contacto = () => {
 
             {/* Modal editar contacto */}
 
-            <EditContactModal 
+            <EditContactModal
                 editableContact={editableContact}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
+                openModal={openEditModal}
+                setOpenModal={setOpenEditModal}
                 hadleFetchResponse={hadleFetchResponseEditContact}
-                />
-           
+            />
+
+            {/* Modal nuevo contacto */}
+
+            <NewContactModal
+                openModal={openNewModal}
+                setOpenModal={setOpenNewModal}
+            />
+
+
         </div>
     );
 }

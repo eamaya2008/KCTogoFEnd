@@ -14,6 +14,7 @@ const HorizontalNavBar = (props) => {
         <nav className="hnavbar">
 
             <ul>
+                {/* TICKETS */}
                 <li className="sidebar-dropdown">
                     <div id="title"
                         onClick={() => setSlDasboard(!slDasboard)}
@@ -27,19 +28,21 @@ const HorizontalNavBar = (props) => {
                             <div className="sidebar-dropdown-item">
                                 <NavLink to="/tickets" replace>Pendientes</NavLink>
                             </div>
-                        <div className="sidebar-dropdown-item">
-                            <NavLink 
-                                to="/tickets" 
-                                replace
-                                onClick={() => setSlDasboard(!slDasboard)}                                 
-                            >Abiertos</NavLink>
+                            <div className="sidebar-dropdown-item">
+                                <NavLink
+                                    to="/tickets"
+                                    replace
+                                    onClick={() => setSlDasboard(!slDasboard)}
+                                >Abiertos</NavLink>
                             </div>
-                        <div className="sidebar-dropdown-item">
+                            <div className="sidebar-dropdown-item">
                                 <NavLink to="/tickets" replace>Derivados a Bs.As.</NavLink>
                             </div>
                         </div>
-                    }                 
+                    }
                 </li>
+
+                {/* CLIENTES */}
                 <li className="sidebar-dropdown">
                     <div id="title">
                         <i className="far fa-gem"></i>
@@ -53,6 +56,7 @@ const HorizontalNavBar = (props) => {
                     </div>
                 </li>
 
+                {/* CONTACTOS */}
                 <li className="sidebar-dropdown">
                     <div id="title"
                         onClick={() => setSlContactos(!slContactos)}
@@ -66,18 +70,16 @@ const HorizontalNavBar = (props) => {
                     {slContactos &&
                         <div className="sidebar-dropdown-item-conteiner">
                             <div className="sidebar-dropdown-item">
-                            <NavLink to="/contact" replace>Listado</NavLink>
+                                <NavLink to="/contact" replace>Listado</NavLink>
                             </div>
                             <div className="sidebar-dropdown-item">
-                            <NavLink to="/newcontact" replace>Agregar Contacto</NavLink>
-
-                            </div>                           
+                                <NavLink to="/newcontact" replace>Agregar Contacto</NavLink>
+                            </div>
                         </div>
-                                            } 
-
-                   
+                    }
                 </li>
-                
+
+                {/* DOCUMENTACION */}
                 <li className="sidebar-dropdown">
                     <div id="title">
                         <i className="fa fa-book"></i>
@@ -86,6 +88,8 @@ const HorizontalNavBar = (props) => {
                         >{"Documentacion"}</span>
                     </div>
                 </li>
+
+                {/* CALENDARIO */}
                 <li className="sidebar-dropdown">
                     <div id="title">
                         <i className="fa fa-calendar"></i>
@@ -94,6 +98,8 @@ const HorizontalNavBar = (props) => {
                         >{"Calendario"}</span>
                     </div>
                 </li>
+
+                {/* EXTRAS */}
                 <li className="sidebar-dropdown">
                     <div id="title">
                         <i className="fa fa-folder"></i>
