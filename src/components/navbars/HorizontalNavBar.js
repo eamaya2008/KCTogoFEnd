@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const HorizontalNavBar = (props) => {
 
     const [slContactos, setSlContactos] = useState(false);
-    const [slDasboard, setSlDasboard] = useState(false);
+    const [slTickets, setSlTickets] = useState(false);
 
 
     return (
@@ -17,26 +17,34 @@ const HorizontalNavBar = (props) => {
                 {/* TICKETS */}
                 <li className="sidebar-dropdown">
                     <div id="title"
-                        onClick={() => setSlDasboard(!slDasboard)}
+                        onClick={() => setSlTickets(!slTickets)}
                     >
                         <i className="fa fa-tachometer-alt"></i>
                         <span className="menu-text">{"Tickets"}</span>
                     </div>
 
-                    {slDasboard &&
+                    {slTickets &&
                         <div className="sidebar-dropdown-item-conteiner">
                             <div className="sidebar-dropdown-item">
-                                <NavLink to="/tickets" replace>Pendientes</NavLink>
+                                <NavLink
+                                    to="/tickets"
+                                    replace
+                                    onClick={() => setSlTickets(!slTickets)}
+                                >{"Pendientes"}</NavLink>
                             </div>
                             <div className="sidebar-dropdown-item">
                                 <NavLink
                                     to="/tickets"
                                     replace
-                                    onClick={() => setSlDasboard(!slDasboard)}
-                                >Abiertos</NavLink>
+                                    onClick={() => setSlTickets(!slTickets)}
+                                >{"Abiertos"}</NavLink>
                             </div>
                             <div className="sidebar-dropdown-item">
-                                <NavLink to="/tickets" replace>Derivados a Bs.As.</NavLink>
+                                <NavLink
+                                    to="/tickets"
+                                    replace
+                                    onClick={() => setSlTickets(!slTickets)}
+                                >{"Derivados a Bs.As."}</NavLink>
                             </div>
                         </div>
                     }
@@ -44,40 +52,35 @@ const HorizontalNavBar = (props) => {
 
                 {/* CLIENTES */}
                 <li className="sidebar-dropdown">
-                    <div id="title">
+                    <div id="title"
+                        onClick={() => setSlContactos(!slContactos)}
+                    >
                         <i className="far fa-gem"></i>
                         <span
                             className={props.sdBarState ? "menu-text mt-shrink" : "menu-text mt-large"}
                         >{"Clientes"}</span>
                     </div>
 
-                    <div className="sidebar-submenu">
-
-                    </div>
-                </li>
-
-                {/* CONTACTOS */}
-                <li className="sidebar-dropdown">
-                    <div id="title"
-                        onClick={() => setSlContactos(!slContactos)}
-                    >
-                        <i className="fa fa-address-book" aria-hidden="true"></i>
-                        <span
-                            className={props.sdBarState ? "menu-text mt-shrink" : "menu-text mt-large"}
-                        >{"Contactos"}</span>
-                    </div>
-
                     {slContactos &&
                         <div className="sidebar-dropdown-item-conteiner">
                             <div className="sidebar-dropdown-item">
-                                <NavLink to="/contact" replace>Listado</NavLink>
+                                <NavLink
+                                    to="/listado"
+                                    replace
+                                    onClick={() => setSlContactos(!slContactos)}
+                                >{"Listado"}</NavLink>
                             </div>
                             <div className="sidebar-dropdown-item">
-                                <NavLink to="/newcontact" replace>Agregar Contacto</NavLink>
+                                <NavLink
+                                    to="/contact"
+                                    replace
+                                    onClick={() => setSlContactos(!slContactos)}
+                                >{"Contactos"}</NavLink>
                             </div>
                         </div>
                     }
                 </li>
+
 
                 {/* DOCUMENTACION */}
                 <li className="sidebar-dropdown">

@@ -84,6 +84,7 @@ const Contacto = () => {
         setOpenEditModal(true)
     }
 
+    //Manejador de respuesta de alta edicion contacto
     const hadleFetchResponseEditContact = (response) => {
         if (response === 201) {
             alert("El contacto fue modificado")
