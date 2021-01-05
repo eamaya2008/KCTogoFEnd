@@ -1,0 +1,180 @@
+.contactos-data{
+    float: right;
+    margin-bottom: 1em;
+    width: 100%;
+    padding-left: 5%;
+    margin-top: 7%;
+}
+.contactos-data-bg{
+    width: 95%;
+    box-shadow: 0px 0px 6px;
+    padding-top: 1rem;
+}
+.contactos-data-bg table{
+    width: 99%;
+    margin-left: 0.5%;
+}
+.contactos-header-search{
+    width: 35%;
+    float: left;
+    margin-top: 1rem;
+    margin-left: 2em;
+}
+.contactos-header-search form{
+    width: 14rem;
+}
+.search-button{
+    border-radius: 50%;
+}
+.search-input-contacto{
+    width: 30%;
+    float: left;
+}
+.search-input-empresa{
+    width: 30%;
+    float: right;
+}
+
+#load-msg{
+    margin-top: 3em;
+    text-align: center;
+}
+#contactos-pagination{
+    margin: 0.5em;
+    float: right;
+}
+.contactos-data-list{
+    display: flex;
+    width: 100%;
+    font-size: 0.9rem;    
+}
+.contactos-data-list:last-child{
+   margin-bottom: 0.5em;   
+}
+.contactos-data-header, .tickets-data-header{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+.contactos-registration{
+    position: fixed;
+    width: 50%;
+    background: aliceblue;
+    border-radius: 5%;    
+    opacity: 95%;
+    margin-top: 2%;
+    box-shadow: 0px 0px 15px;
+    margin-left: 26%;
+}
+.contactos-registration-form{
+    padding: 8% 10% 10% 10%;
+}
+.contactos-registration-form h4{
+    text-align: center;
+    margin-bottom: 1em;
+} 
+.contactos-registration-form label, .contactos-registration-form label input,.contactos-registration-form label select{
+    width: 100%;
+}
+.contactos-registration-form-field-input{
+    width: 100%;
+    font-size: 0.9rem;
+}
+.contactos-registration-form-field{
+    margin: 1em auto;
+}
+#iempresa{
+    width: 50%;
+    margin-left: 16%;
+    font-size: smaller;
+    margin-bottom: 1%;
+}
+#list{
+    overflow: scroll;
+    height: 20%;
+}
+
+#cliente, #nombre, #email, #telefono, #modificar{    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid black;
+    padding: 0.25rem 0% 0.25rem 0.25rem;
+}
+#modifiar{
+   padding: 0%; 
+}
+#clienteHeader, #nombreHeader, #emailHeader, #telefonoHeader, 
+#tkIdHeader,#tkFechaCreacionHeader, #tkClientelHeader, #tkTemaHeader, #tkUsuarioHeader, #tkEstadoHeader, #tkAbonadoHeader{   
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.25rem 0% 0.25rem 0.25rem;
+}
+#modificarHeader{
+  border: 1px solid black;  
+}
+/* Lista Tickets */
+#tkIdHeader{
+    width: 5%;
+}
+#tkFechaCreacionHeader{
+    width: 15%;
+}
+#tkClientelHeader{
+    width: 25%;
+}
+#tkTemaHeader{
+    width: 35%;
+}
+#tkUsuarioHeader{
+    width: 7%;
+} 
+#tkEstadoHeader{
+    width: 7%;    
+} 
+#tkAbonadoHeader{
+    width: 7%;
+}
+
+/* Lista Contactos */
+#cliente, #clienteHeader{
+    width: 25%;
+}
+#nombre, #nombreHeader{
+    width: 20%;
+}
+#email,#emailHeader{
+    width: 25%;
+}
+#telefono, #telefonoHeader {
+    width: 25%;  
+}
+#modificar{
+    width: 5%;
+}
+#modificarHeader{
+    width: 5.1%;
+}
+#contactos-add-button{
+    margin-top: 5%;
+    margin-left: 30%;
+}
+#contactos-edit-button{
+    font-size: 20px;
+    margin-left: 20%;
+}
+
+
+.bgLine{
+    background-color: #1e3b5b;
+    color: #f5b995;
+}
+
+.contactos-dd-cliente{
+    background-color: white;
+    overflow: overlay;
+    max-height: 25vh;
+    border: 1px solid;
+    border-color: darkgray;
+    list-style: none;
+}

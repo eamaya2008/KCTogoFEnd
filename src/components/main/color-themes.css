@@ -1,0 +1,63 @@
+.sidebar-wrapper, .main-header, .component-title{
+  background-color: #1e3b5b;
+}
+.content-main{
+  background-color: #f4f7fa;
+}
+.sidebar-wrapper .sidebar-item {
+  border-top: 1px solid #2b2b2b; 
+}
+.sidebar-wrapper  a:not(.dropdown-item),
+.sidebar-wrapper .sidebar-header,
+.sidebar-wrapper .sidebar-search input,
+.sidebar-wrapper .sidebar-search i,
+#title i,
+.sidebar-wrapper  #title:not(.dropdown-item),
+.sidebar-dropdown span {
+ color: bisque; 
+}
+.sidebar-wrapper a:not(.dropdown-item):hover,
+.sidebar-wrapper .sidebar-menu li.active > a,
+.sidebar-dropdown span:hover, #drop-zone{
+ color: #d8d8d8; 
+}
+.sidebar-wrapper .sidebar-menu a:hover i,
+.sidebar-wrapper .sidebar-menu a:hover:before,
+.sidebar-wrapper .sidebar-menu li.active a i,
+.sidebar-menu #title:hover i,
+#title:hover i{
+  color: #167bff; 
+}
+.sidebar-wrapper .sidebar-menu .header-menu span, .user-name, .sidebar-dropdown-item-conteiner, .component-title h2 {
+  color: aliceblue; 
+}
+.sidebar-wrapper .sidebar-item{
+ border-color: #454545; 
+}
+
+.sidebar-dropdown-item-conteiner,.tickets-data-bg, .tickets-modi-bg, .tickets-data-grid, .tickets-filter-conteiner{
+  background-color:aliceblue; 
+}
+.contactos-data-bg, .tickets-card-conteiner{
+  background-color: white;
+}
+.title{
+  background-color: inherit;
+}
+.options-menu option:hover, #tickets-modi-add-contact:hover {
+background-color:  #167bff;
+color: white;
+}
+.tickets.card.conteiner{
+  background-color: white;
+}
+#tickets-modi-add-contact{
+    background-color: tomato;
+    color: white;
+}
+#tickets-card-bottom{
+  background: linear-gradient(80deg, bisque 30%, tomato);
+}
+.tickets.card.dnd{
+  background-color: white;
+}
